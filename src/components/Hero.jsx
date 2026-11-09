@@ -32,7 +32,7 @@ export default function Hero() {
   return (
     <section className="hero" id="top">
       <div className="ring" aria-hidden="true">
-        <svg viewBox="0 0 100 100"><polygon points="50,6 88.1,72 11.9,72" fill="none" stroke="#98A9C4" strokeWidth=".25" strokeDasharray="1.2 1.8" /></svg>
+        <svg viewBox="0 0 100 100"><polygon points="50,6 88.1,72 11.9,72" fill="none" style={{ stroke: 'var(--mist)' }} strokeWidth=".25" strokeDasharray="1.2 1.8" /></svg>
         <svg viewBox="0 0 100 100"><polygon points="50,6 88.1,72 11.9,72" fill="none" stroke="#536684" strokeWidth=".3" /></svg>
       </div>
       <div className="wrap hero-inner">

@@ -6,6 +6,12 @@
     <meta name="theme-color" content="#111522" />
     <meta name="description" content="Delta is a student engineering club: Engineer, Innovate, Evolve." />
     <title>Delta Club</title>
+    <script>
+      try {
+        var t = localStorage.getItem('delta-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" />

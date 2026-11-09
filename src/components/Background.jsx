@@ -11,12 +11,16 @@ export default function Background() {
     const cv = cvRef.current;
     const ctx = cv.getContext('2d');
     const reduce = prefersReducedMotion();
-    const cs = getComputedStyle(document.documentElement);
-    const C = {
-      mist: cs.getPropertyValue('--mist').trim() || '#98A9C4',
-      steel: cs.getPropertyValue('--steel').trim() || '#536684',
-      ice: cs.getPropertyValue('--ice').trim() || '#DCE3EF',
+    const C = {};
+    const readColors = () => {
+      const cs = getComputedStyle(document.documentElement);
+      C.mist = cs.getPropertyValue('--mist').trim() || '#98A9C4';
+      C.steel = cs.getPropertyValue('--steel').trim() || '#536684';
+      C.ice = cs.getPropertyValue('--ice').trim() || '#DCE3EF';
     };
+    readColors();
+    const mo = new MutationObserver(readColors);
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     let w = 0, h = 0, pts = [], mx = -9999, my = -9999, run = false, raf = 0;
     const make = () => ({
       x: Math.random() * w, y: Math.random() * h,
@@ -88,7 +92,7 @@ export default function Background() {
     if (!reduce) set(true);
 
     return () => {
-      cancelAnimationFrame(raf); run = false;
+      cancelAnimationFrame(raf); run = false; mo.disconnect();
       window.removeEventListener('resize', resize);
       window.removeEventListener('pointermove', onMove);
       window.removeEventListener('pointerup', onUp);

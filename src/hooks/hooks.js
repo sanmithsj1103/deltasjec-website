@@ -36,3 +36,18 @@ export function useInView({ threshold = 0.2, rootMargin = '0px', once = false } 
   }, [threshold, rootMargin, once]);
   return [ref, visible];
 }
+
+// Light / dark theme. Saved in localStorage, applied as data-theme on <html>. Dark is the default.
+const THEME_KEY = 'delta-theme';
+
+export function useTheme() {
+  const [theme, setTheme] = useState(() =>
+    document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'
+  );
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#EEF2F8' : '#111522');
+    try { localStorage.setItem(THEME_KEY, theme); } catch { }
+  }, [theme]);
+  return { theme, toggle: () => setTheme((t) => (t === 'light' ? 'dark' : 'light')) };
+}
