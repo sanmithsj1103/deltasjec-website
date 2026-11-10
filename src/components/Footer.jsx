@@ -14,7 +14,7 @@ export default function Footer() {
             <h4>Menu</h4>
             <ul>
               <li><a href="#top">Home</a></li>
-              <li><a href="#partners">Partners</a></li>
+              <li><a href="#technologies">Technologies</a></li>
               <li><a href="#departments">Department</a></li>
               <li><a href="#team">Team</a></li>
               <li><a href="#join">Join Community</a></li>

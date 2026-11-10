@@ -89,15 +89,35 @@ export const ABOUT_IDS = ['engineering', 'sustainability', 'media'];
 export const NAV = [
   { href: '#top', label: 'Home' },
   { href: '#about', label: 'About' },
-  { href: '#partners', label: 'Partners' },
+  { href: '#technologies', label: 'Technologies' },
   { href: '#departments', label: 'Departments' },
   { href: '#team', label: 'Team' },
 ];
 
-export const PARTNERS = [
-  { n: 'Ansys', s: 'part of Synopsys', t: 'Simulation', d: 'Structural, thermal and fluid analysis for our mechanical designs.' },
-  { n: 'MathWorks', s: 'MATLAB and Simulink', t: 'Computation', d: 'Modelling, control design and data analysis across all departments.' },
-  { n: 'Visual Studio Code', s: 'Code editor', t: 'Development', d: 'The shared editor for firmware, tooling and web projects.' },
+// `file` is the logo file name (without extension) in src/assets/tech/
+export const TECHNOLOGIES = [
+  { n: 'Ansys', file: 'ansys' },
+  { n: 'MathWorks MATLAB', file: 'matlab' },
+  { n: 'Visual Studio Code', file: 'vscode' },
+  { n: 'Autodesk', file: 'autodesk' },
+  { n: 'Blender', file: 'blender' },
+  { n: 'Claude', file: 'claude' },
+  { n: 'DaVinci Resolve', file: 'davinci-resolve' },
+  { n: 'Elsevier', file: 'elsevier' },
+  { n: 'GitHub', file: 'github' },
+  { n: 'Google Scholar', file: 'google-scholar' },
+  { n: 'KiCad', file: 'kicad' },
+  { n: 'LibreOffice', file: 'libreoffice' },
+  { n: 'Mendeley', file: 'mendeley' },
+  { n: 'Notion', file: 'notion' },
+  { n: 'Obsidian', file: 'obsidian' },
+  { n: 'Onshape', file: 'onshape'},
+  { n: 'Overleaf', file: 'overleaf' },
+  { n: 'Perplexity', file: 'perplexity' },
+  { n: 'Python', file: 'python' },
+  { n: 'Unity', file: 'unity' },
+  { n: 'Unreal Engine', file: 'unreal-engine' },
+  { n: 'Zotero', file: 'zotero' },
 ];
 
 export const DEPTS = [

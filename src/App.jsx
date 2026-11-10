@@ -4,7 +4,7 @@ import Preloader from './components/Preloader.jsx';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import About from './components/About.jsx';
-import Partners from './components/Partners.jsx';
+import Technologies from './components/Technologies.jsx';
 import Departments from './components/Departments.jsx';
 import Voices from './components/Voices.jsx';
 import Team from './components/Team.jsx';
@@ -47,7 +47,7 @@ export default function App() {
         <main id="home">
           <Hero />
           <About />
-          <Partners />
+          <Technologies />
           <Departments />
           <Voices />
           <Team />
