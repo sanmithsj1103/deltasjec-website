@@ -9,6 +9,7 @@
   --bg:var(--ink-900); --surface:var(--ink-800); --raised:var(--ink-700);
   --fg:var(--ice); --muted:var(--mist); --faint:var(--steel);
   --line:rgba(152,169,196,.18);
+  --hl-bg:#fff; --hl-fg:#111522;
   --glass:rgba(255,255,255,.07);
   --glass-edge:rgba(255,255,255,.22);
   --glass-hover:rgba(255,255,255,.16);
@@ -39,10 +40,11 @@ img{display:block}
 .preloader.leave{transform:translateY(-100%);pointer-events:none}
 @keyframes plFallback{to{transform:translateY(-100%);visibility:hidden}}
 .pl-stage{display:grid;place-items:center;width:100%;min-height:40vh;padding-inline:16px}
-.pl-word{font-family:var(--f-display);font-size:clamp(3.4rem,17vw,9.5rem);line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;padding-left:.06em}
-.pl-word span{display:inline-block;opacity:0;transform:translateY(60%);filter:blur(8px);transition:opacity .35s ease,transform .45s var(--ease),filter .35s ease;transition-delay:calc(var(--i)*35ms)}
-.pl-word.in span{opacity:1;transform:none;filter:none}
-.pl-word.out span{opacity:0;transform:translateY(-60%);filter:blur(8px);transition-delay:calc(var(--i)*20ms)}
+.pl-word{font-family:var(--f-display);font-size:clamp(3.4rem,17vw,9.5rem);line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;padding-left:.06em;transition:opacity .15s ease-out}
+.pl-word.out{opacity:0}
+/* .pl-word span{display:inline-block;opacity:0;transform:translateY(60%);filter:blur(8px);transition:opacity .35s ease,transform .45s var(--ease),filter .35s ease;transition-delay:calc(var(--i)*35ms)} */
+/* .pl-word.in span{opacity:1;transform:none;filter:none} */
+/* .pl-word.out span{opacity:0;transform:translateY(-60%);filter:blur(8px);transition-delay:calc(var(--i)*20ms)} */
 .pl-logo{position:absolute;width:min(300px,62vw);opacity:0;transform:scale(.86);transition:opacity .7s ease,transform 1s var(--ease)}
 .pl-logo.show{opacity:1;transform:none}
 .pl-bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(152,169,196,.12)}
@@ -97,17 +99,21 @@ img{display:block}
 .ring svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 140s linear infinite}
 .ring svg+svg{animation-duration:200s;animation-direction:reverse;inset:12%;width:76%;height:76%}
 @keyframes spin{to{transform:rotate(360deg)}}
-.hero-inner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px;padding-block:clamp(120px,14vw,190px) clamp(64px,9vw,112px)}
+.hero-inner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(48px,6vw,76px);padding-block:clamp(120px,14vw,190px) clamp(64px,9vw,112px)}
 .hero-logo{position:relative;width:min(400px,68vw)}
 .logo-par{aspect-ratio:var(--full-ar);transform:perspective(900px) translate3d(var(--tx,0px),var(--ty,0px),0) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .7s var(--ease)}
 .logo-float{width:100%;height:100%;filter:drop-shadow(0 0 26px rgba(152,169,196,.16));animation:float 6.5s ease-in-out infinite}
 .hero-logo::after{content:"";position:absolute;left:20%;right:20%;bottom:-30px;height:20px;background:radial-gradient(ellipse at center,rgba(0,0,0,.5),transparent 70%);animation:floatShadow 6.5s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-16px) rotate(.7deg)}}
 @keyframes floatShadow{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(.8);opacity:.5}}
-.motto{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 22px;font-family:var(--f-display);font-size:clamp(1.15rem,4.2vw,1.8rem);letter-spacing:.14em;text-transform:uppercase}
+.motto{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 22px;font-family:var(--f-display);font-size:clamp(1.55rem,6.2vw,3rem);letter-spacing:.14em;text-transform:uppercase}
 .motto i{width:1px;height:1.2em;background:var(--steel)}
-.hero-sub{max-width:52ch;color:var(--muted);font-size:1.05rem}
-.hero-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:6px}
+@media (max-width:600px){.motto{flex-direction:column;gap:8px;font-size:clamp(1.7rem,9vw,2.4rem)}.motto i{display:none}}
+.motto span{padding:.14em .3em .08em .45em;border-radius:0;animation:mottoHi 12s infinite;animation-delay:calc(var(--i) * 4s);animation-play-state:paused}
+.ready .motto span{animation-play-state:running}
+@keyframes mottoHi{0%{background-color:transparent;color:var(--fg)}3%,30%{background-color:var(--hl-bg);color:var(--hl-fg)}34%,100%{background-color:transparent;color:var(--fg)}}
+/* .hero-sub{max-width:52ch;color:var(--muted);font-size:1.05rem}
+.hero-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:6px} */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:.8rem 1.5rem;font-family:var(--f-display);font-size:1.15rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ice);background:var(--ice);color:var(--ink-900);cursor:pointer;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));transition:background .2s,color .2s}
 .btn:hover{background:var(--mist);border-color:var(--mist)}
 .btn.ghost{background:transparent;color:var(--fg);border-color:var(--steel);clip-path:none;border-radius:3px}
@@ -360,3 +366,5 @@ form.card-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18
   --fg:#DCE3EF; --muted:#98A9C4; --faint:#98A9C4; --line:rgba(152,169,196,.18);
   color:#DCE3EF; background:#1E263B;
 }
+/* Motto highlight in light mode: dark square, white text */
+:root[data-theme="light"]{--hl-bg:#111522;--hl-fg:#fff}

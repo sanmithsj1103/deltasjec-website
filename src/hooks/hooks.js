@@ -38,7 +38,7 @@ export function useInView({ threshold = 0.2, rootMargin = '0px', once = false } 
 }
 
 // Light / dark theme. Saved in localStorage, applied as data-theme on <html>. Dark is the default.
-const THEME_KEY = 'delta-theme';
+const THEME_KEY = 'delta-theme-v2'; // v2: ignores any older saved choice, so everyone starts in dark
 
 export function useTheme() {
   const [theme, setTheme] = useState(() =>

@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
-import Icon from './Icon.jsx';
+import { Fragment, useEffect, useRef } from 'react';
 import { prefersReducedMotion } from '../hooks/hooks.js';
+const MOTTO = ['Engineer', 'Innovate', 'Evolve'];
 
 export default function Hero() {
   const logoRef = useRef(null);
@@ -41,11 +41,19 @@ export default function Hero() {
             <div className="logo-float logo-full" role="img" aria-label="Delta logo: a triangle holding a microchip and a gear" />
           </div>
         </div>
-        <p className="motto"><span>Engineer</span><i /><span>Innovate</span><i /><span>Evolve</span></p>
+        <p className="motto" aria-label="Engineer, Innovate, Evolve">
+          {MOTTO.map((w, i) => (
+            <Fragment key={w}>
+              {i > 0 && <i aria-hidden="true" />}
+              <span style={{ '--i': i }}>{w}</span>
+            </Fragment>
+          ))}
+        </p>
+        {/* <p className="motto"><span>Engineer</span><i /><span>Innovate</span><i /><span>Evolve</span></p>
         <p className="hero-sub">A student engineering club where mechanical, electronic and software minds build things together, from first sketch to working prototype.</p>
         <div className="hero-cta">
           <a className="btn" href="#join">Join the community <Icon name="arrow" /></a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 
 const WORDS = ['ENGINEER', 'INNOVATE', 'EVOLVE', 'DELTA'];
-const STEP = 640;
+const STEP = 780;
 
 // Words flash in turn, then the logo appears, then the whole layer swipes up to reveal the hero.
 export default function Preloader({ onReveal, onDone }) {
   const [k, setK] = useState(0);
-  const [phase, setPhase] = useState('pre'); // pre -> in -> out
+  const [phase, setPhase] = useState('show'); // show -> out
   const [showWord, setShowWord] = useState(true);
   const [showLogo, setShowLogo] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -26,9 +26,8 @@ export default function Preloader({ onReveal, onDone }) {
     root.classList.add('lock');
     const at = (fn, ms) => timers.current.push(setTimeout(fn, ms));
     WORDS.forEach((_, i) => {
-      at(() => { setK(i); setPhase('pre'); setProgress(((i + 1) / (WORDS.length + 1)) * 100); }, i * STEP);
-      at(() => setPhase('in'), i * STEP + 30);
-      at(() => setPhase('out'), i * STEP + STEP - 210);
+      at(() => { setK(i); setPhase('show'); setProgress(((i + 1) / (WORDS.length + 1)) * 100); }, i * STEP);
+      at(() => setPhase('out'), i * STEP + STEP - 150);
     });
     const t = WORDS.length * STEP;
     at(() => { setShowWord(false); setShowLogo(true); setProgress(100); }, t);
@@ -55,10 +54,8 @@ export default function Preloader({ onReveal, onDone }) {
     <div className={`preloader${leaving ? ' leave' : ''}`} role="status" aria-label="Loading Delta">
       <div className="pl-stage">
         {showWord && (
-          <div key={k} className={`pl-word${phase === 'in' ? ' in' : phase === 'out' ? ' out' : ''}`} aria-hidden="true">
-            {[...WORDS[k]].map((c, i) => (
-              <span key={i} style={{ '--i': i }}>{c}</span>
-            ))}
+          <div key={k} className={`pl-word${phase === 'out' ? ' out' : ''}`} aria-hidden="true">
+            {WORDS[k]}
           </div>
         )}
         <div className={`pl-logo logo-full${showLogo ? ' show' : ''}`} role="img" aria-label="Delta logo" />
