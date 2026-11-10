@@ -16,11 +16,12 @@ function Socials({ p }) {
   );
 }
 
+// Only Branch — department field removed
 const Meta = ({ p }) => (
-  <dl className="meta"><dt>Branch</dt><dd>{p.b}</dd><dt>Dept</dt><dd>{p.d}</dd></dl>
+  <dl className="meta"><dt>Branch</dt><dd>{p.b}</dd></dl>
 );
 
-// President and department leads: card that expands on hover/focus
+// President / leads card: expands on hover/focus to show extra info
 function PersonCard({ p, seed, className = '' }) {
   return (
     <article className={`pcard ${className}`} tabIndex={0} aria-label={`${p.n}, ${p.r}`}>
@@ -32,7 +33,7 @@ function PersonCard({ p, seed, className = '' }) {
           <div>
             <div className="inner">
               <Meta p={p} />
-              <p className="quote">{'“'}{p.q}{'”'}</p>
+              <p className="quote">{'\u201c'}{p.q}{'\u201d'}</p>
               <Socials p={p} />
             </div>
           </div>
@@ -42,7 +43,7 @@ function PersonCard({ p, seed, className = '' }) {
   );
 }
 
-// Members: tall strip. Hovered strip grows to show the full photo and details; the others shrink.
+// Members: tall strip — hovered strip grows; others shrink
 function MemberStrip({ p, seed }) {
   return (
     <article className="strip" tabIndex={0} aria-label={`${p.n}, ${p.r}`}>
@@ -53,7 +54,7 @@ function MemberStrip({ p, seed }) {
         <h3>{p.n}</h3>
         <p className="role">{p.r}</p>
         <Meta p={p} />
-        <p className="quote">{'“'}{p.q}{'”'}</p>
+        <p className="quote">{'\u201c'}{p.q}{'\u201d'}</p>
         <Socials p={p} />
       </div>
     </article>
@@ -67,17 +68,29 @@ export default function Team() {
         <SectionHead eyebrow="Delta team" title="The people building it">
           Hover or tap a card to see who they are, what they study and how to reach them.
         </SectionHead>
+
+        {/* Row 1: Founder & President — 2 cards side by side */}
         <div className="tier">
-          <div className="tier-label">President</div>
-          <div>{TEAM.president.map((p, i) => <PersonCard key={p.n} p={p} seed={i + 8} className="pres" />)}</div>
+          <div className="tier-label">Founder &amp; President</div>
+          <div className="duo">
+            {TEAM.row1.map((p, i) => <PersonCard key={p.n} p={p} seed={i + 8} />)}
+          </div>
         </div>
+
+        {/* Row 2: Vice Presidents & Department Heads — 4 cards */}
         <div className="tier">
-          <div className="tier-label">Vice president and department leads</div>
-          <div className="leads">{TEAM.leads.map((p, i) => <PersonCard key={p.n} p={p} seed={i + 11} />)}</div>
+          <div className="tier-label">Vice Presidents &amp; Department Heads</div>
+          <div className="leads">
+            {TEAM.leads.map((p, i) => <PersonCard key={p.n} p={p} seed={i + 11} />)}
+          </div>
         </div>
+
+        {/* Row 3: Members — accordion strips */}
         <div className="tier">
           <div className="tier-label">Members</div>
-          <div className="strips">{TEAM.members.map((p, i) => <MemberStrip key={p.n} p={p} seed={i + 20} />)}</div>
+          <div className="strips">
+            {TEAM.members.map((p, i) => <MemberStrip key={p.n} p={p} seed={i + 20} />)}
+          </div>
         </div>
       </div>
     </section>
