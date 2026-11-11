@@ -220,7 +220,7 @@ img{display:block}
 .duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 /* Row 2 leads: flex so cards can grow/shrink on hover */
 .leads{display:flex;gap:20px}
-.pcard{position:relative;height:380px;border-radius:18px;overflow:hidden;background:var(--surface);border:1px solid var(--line);isolation:isolate;transition:flex .6s var(--ease),opacity .4s ease,transform .5s var(--ease),box-shadow .5s ease}
+.pcard{position:relative;height:480px;border-radius:18px;overflow:hidden;background:var(--surface);border:1px solid var(--line);isolation:isolate;transition:flex .6s var(--ease),opacity .4s ease,transform .5s var(--ease),box-shadow .5s ease}
 .leads .pcard{flex:1 1 0;min-width:0}
 .leads .pcard:hover,.leads .pcard:focus-within{flex:2.4;transform:translateY(-6px) scale(1.02);box-shadow:0 34px 60px -30px rgba(0,0,0,.8)}
 .leads:has(.pcard:hover) .pcard:not(:hover):not(:focus-within),

@@ -1,10 +1,10 @@
+import { useEffect, useRef } from 'react';
 import Icon from './Icon.jsx';
 import SectionHead from './SectionHead.jsx';
 import { TEAM } from '../data.js';
 import { photoOf, slug } from '../utils.js';
 
 function Socials({ p }) {
-  // Real links per person: add linkedin / instagram / github / email fields to the person in data.js
   const email = p.email || `${slug(p.n)}@example.com`;
   return (
     <div className="socials">
@@ -16,15 +16,30 @@ function Socials({ p }) {
   );
 }
 
-// Only Branch — department field removed
 const Meta = ({ p }) => (
   <dl className="meta"><dt>Branch</dt><dd>{p.b}</dd></dl>
 );
 
 // President / leads card: expands on hover/focus to show extra info
 function PersonCard({ p, seed, className = '' }) {
+  const cardRef = useRef(null);
+  
+  useEffect(() => {
+    const unfreeze = () => {
+      if (cardRef.current?.contains(document.activeElement)) {
+        document.activeElement.blur();
+      }
+    };
+    document.addEventListener('visibilitychange', unfreeze);
+    window.addEventListener('focus', unfreeze);
+    return () => {
+      document.removeEventListener('visibilitychange', unfreeze);
+      window.removeEventListener('focus', unfreeze);
+    };
+  }, []);
+
   return (
-    <article className={`pcard ${className}`} tabIndex={0} aria-label={`${p.n}, ${p.r}`}>
+    <article ref={cardRef} className={`pcard ${className}`} tabIndex={0} aria-label={`${p.n}, ${p.r}`}>
       <img src={photoOf(p, seed)} alt={`Portrait of ${p.n}`} loading="lazy" />
       <div className="pinfo">
         <h3>{p.n}</h3>
@@ -45,8 +60,24 @@ function PersonCard({ p, seed, className = '' }) {
 
 // Members: tall strip — hovered strip grows; others shrink
 function MemberStrip({ p, seed }) {
+  const stripRef = useRef(null);
+
+  useEffect(() => {
+    const unfreeze = () => {
+      if (stripRef.current?.contains(document.activeElement)) {
+        document.activeElement.blur();
+      }
+    };
+    document.addEventListener('visibilitychange', unfreeze);
+    window.addEventListener('focus', unfreeze);
+    return () => {
+      document.removeEventListener('visibilitychange', unfreeze);
+      window.removeEventListener('focus', unfreeze);
+    };
+  }, []);
+
   return (
-    <article className="strip" tabIndex={0} aria-label={`${p.n}, ${p.r}`}>
+    <article ref={stripRef} className="strip" tabIndex={0} aria-label={`${p.n}, ${p.r}`}>
       <img src={photoOf(p, seed)} alt={`Portrait of ${p.n}`} loading="lazy" />
       <div className="strip-shade" />
       <div className="strip-tag"><b>{p.n}</b><span>{p.r}</span></div>
@@ -71,7 +102,7 @@ export default function Team() {
 
         {/* Row 1: Founder & President — 2 cards side by side */}
         <div className="tier">
-          <div className="tier-label">Founder &amp; President</div>
+          <div className="tier-label">Leadership</div>
           <div className="duo">
             {TEAM.row1.map((p, i) => <PersonCard key={p.n} p={p} seed={i + 8} />)}
           </div>
@@ -79,7 +110,7 @@ export default function Team() {
 
         {/* Row 2: Vice Presidents & Department Heads — 4 cards */}
         <div className="tier">
-          <div className="tier-label">Vice Presidents &amp; Department Heads</div>
+          <div className="tier-label">Department &amp; Team Leads</div>
           <div className="leads">
             {TEAM.leads.map((p, i) => <PersonCard key={p.n} p={p} seed={i + 11} />)}
           </div>

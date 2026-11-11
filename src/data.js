@@ -1,7 +1,4 @@
-﻿// All dummy content lives here. Replace with real details when ready.
-// Add `photo: '/path/or/url.jpg'` to any person to use a real photo instead of the placeholder.
-
-export const PAGES = {
+﻿export const PAGES = {
   engineering: {
     icon: 'gear',
     title: 'Engineering',
@@ -142,11 +139,11 @@ export const VOICES = [
 ];
 
 export const TEAM = {
-  // Row 1: Founder & VP Mechanical  +  President
+  // Row 1: Co-Founder & VP Mechanical  +  President
   row1: [
     {
       n: 'Norman Daran Dsouza', b: 'Mechanical Engineering',
-      r: 'Founder & Vice President of Mechanical Engineering',
+      r: 'Co-Founder & Vice President of Mechanical Engineering',
       q: 'Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.',
       photo: '',
       linkedin: 'http://www.linkedin.com/in/norman-daran-dsouza',
@@ -168,6 +165,16 @@ export const TEAM = {
   // Row 2: VP Electronics, VP CS, Management Head, Media Head
   leads: [
     {
+      n: 'Melrick Prith Dsouza', b: 'Artificial Intelligence & Machine Learning',
+      r: 'Vice President of Computer Science Engineering',
+      q: 'The best way to predict the future is to invent it.',
+      photo: '',
+      linkedin: 'https://www.linkedin.com/in/melrick-dsouza-95a956299',
+      instagram: 'https://www.instagram.com/its_melrick_dsouza?obrf=aHB4MHY1M3ZuMXVj',
+      github: 'https://github.com/melrickpd2006',
+      email: 'melrick.p.d2006@gmail.com',
+    },
+    {
       n: 'Nikhitha HL', b: 'Electronics & Communication Engineering',
       r: 'Vice President of Electronics Engineering',
       q: 'Learning today, designing tomorrow, and building my future one chip at a time.',
@@ -176,16 +183,6 @@ export const TEAM = {
       instagram: '',
       github: 'https://github.com/NikhithaHl',
       email: 'nikhithahl2006@gmail.com',
-    },
-    {
-      n: 'Melrick Prith Dsouza', b: 'Artificial Intelligence & Machine Learning',
-      r: 'Vice President of Computer Science Engineering',
-      q: 'Readable code is a team sport.',
-      photo: '',
-      linkedin: 'https://www.linkedin.com/in/melrick-dsouza-95a956299',
-      instagram: '',
-      github: '',
-      email: 'melrick.p.d2006@gmail.com',
     },
     {
       n: 'Anjali R Rai', b: 'Artificial Intelligence & Machine Learning',
@@ -200,7 +197,7 @@ export const TEAM = {
     {
       n: 'Shawn Vas', b: 'Artificial Intelligence & Machine Learning',
       r: 'Media Head',
-      q: 'The best shot is the one at the bench.',
+      q: 'Working behind the scences, running the show while everyone thinks it\'s magic.',
       photo: '',
       linkedin: 'https://www.linkedin.com/in/shawn-vas-aa0a56387',
       instagram: 'https://www.instagram.com/shawn_vas',
@@ -249,6 +246,16 @@ export const TEAM = {
       instagram: '',
       github: 'https://github.com/Anikaa1221',
       email: 'anikapatrao12@gmail.com',
+    },
+    {
+      n: 'Darren Merce Aranha', b: 'Computer Science Engineering',
+      r: 'Creative Editor',
+      q: 'Keep it simple, stupid.',
+      photo: '',
+      linkedin: 'https://www.linkedin.com/in/darren-aranha-46298344a/',
+      instagram: 'https://www.instagram.com/not.__.darren/',
+      github: 'https://github.com/darrenaranha',
+      email: 'darrenaranha06@gmail.com',
     },
     {
       n: 'Melria Smitha Gonsalves', b: 'Artificial Intelligence & Machine Learning',
