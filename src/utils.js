@@ -25,7 +25,12 @@ export function portrait(seed) {
   return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
 }
 
-export const photoOf = (person, seed) => person.photo || portrait(seed);
+export const photoOf = (person, seed) => {
+  if (!person.photo) return portrait(seed);
+  // Full URL (e.g. Cloudinary) — return directly
+  if (person.photo.startsWith('http')) return person.photo;
+  return portrait(seed);
+};
 
 // "Dr. Meera Raghavan" -> "meera.raghavan"
 export const slug = (name) =>

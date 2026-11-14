@@ -1,10 +1,10 @@
 import Icon from './Icon.jsx';
 import SectionHead from './SectionHead.jsx';
-import { CLUB_EMAIL } from '../data.js';
+import { CLUB_EMAIL, CLUB_SOCIAL } from '../data.js';
 
 const HANDLES = [
-  { icon: 'linkedin', name: 'LinkedIn', text: 'Delta Club', href: 'https://www.linkedin.com/', external: true },
-  { icon: 'insta', name: 'Instagram', text: '@delta.club', href: 'https://www.instagram.com/', external: true },
+  { icon: 'linkedin', name: 'LinkedIn', text: 'Delta Club', href: CLUB_SOCIAL.linkedin || 'https://www.linkedin.com/company/deltasjec/', external: true },
+  { icon: 'insta', name: 'Instagram', text: '@deltasjec', href: CLUB_SOCIAL.instagram || 'https://www.instagram.com/delta.sjec/', external: true },
   { icon: 'mail', name: 'Email', text: CLUB_EMAIL, href: `mailto:${CLUB_EMAIL}` },
 ];
 

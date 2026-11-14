@@ -1,21 +1,48 @@
 import { useState } from 'react';
 import Icon from './Icon.jsx';
-import { BRANCHES } from '../data.js';
+import { BRANCHES, CLUB_EMAIL } from '../data.js';
 
 const EMPTY = { name: '', branch: '', dept: '', email: '', phone: '', why: '' };
 
 export default function Join() {
   const [form, setForm] = useState(EMPTY);
   const [status, setStatus] = useState('');
+  const [sending, setSending] = useState(false);
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  // Replace the body of this function to send `form` to Formspree, Google Sheets, Supabase, etc.
-  // Example: await fetch('https://formspree.io/f/your-id', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) });
-  const submit = (e) => {
+  // Sends the application to the club inbox through Web3Forms (access key in .env as VITE_WEB3FORMS_KEY)
+  const submit = async (e) => {
     e.preventDefault();
-    if (!e.currentTarget.checkValidity()) { e.currentTarget.reportValidity(); return; }
-    setStatus(`Thanks, ${form.name.trim().split(' ')[0]}. This preview form is not connected to an inbox yet, so nothing was sent.`);
-    setForm(EMPTY);
+    const formEl = e.currentTarget;
+    if (!formEl.checkValidity()) { formEl.reportValidity(); return; }
+    if (new FormData(formEl).get('botcheck')) return; // hidden spam trap
+    setSending(true);
+    setStatus('Sending...');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: `New Delta application: ${form.name}`,
+          from_name: 'Delta website',
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          branch: form.branch,
+          department: form.dept,
+          why_join: form.why,
+        }),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || 'Request failed');
+      setStatus(`Thanks, ${form.name.trim().split(' ')[0]}. Your application has been sent. We will get back to you soon.`);
+      setForm(EMPTY);
+    } catch {
+      setStatus(`Something went wrong. Please try again, or email us at ${CLUB_EMAIL}.`);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -34,6 +61,7 @@ export default function Join() {
           </ul>
         </div>
         <form className="card-form" onSubmit={submit} noValidate={false}>
+          <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} />
           <div className="field full">
             <label htmlFor="f-name">Name</label>
             <input id="f-name" name="name" type="text" autoComplete="name" placeholder="Your full name" required value={form.name} onChange={set('name')} />
@@ -67,7 +95,7 @@ export default function Join() {
             <textarea id="f-why" name="why" placeholder="What do you want to build or learn?" required value={form.why} onChange={set('why')} />
           </div>
           <div className="form-foot">
-            <button className="btn" type="submit">Send application <Icon name="arrow" /></button>
+            <button className="btn" type="submit" disabled={sending}>{sending ? 'Sending...' : 'Send application'} <Icon name="arrow" /></button>
             <p className="status" role="status" aria-live="polite">{status}</p>
           </div>
         </form>

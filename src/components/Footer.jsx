@@ -1,4 +1,4 @@
-import { CLUB_EMAIL } from '../data.js';
+import { CLUB_EMAIL, CLUB_SOCIAL } from '../data.js';
 
 export default function Footer() {
   return (
@@ -33,15 +33,14 @@ export default function Footer() {
           <div>
             <h4>Contact</h4>
             <ul>
-              <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a href={CLUB_SOCIAL.linkedin || 'https://www.linkedin.com/company/deltasjec/'} target="_blank" rel="noopener">LinkedIn</a></li>
               <li><a href={`mailto:${CLUB_EMAIL}`}>{CLUB_EMAIL}</a></li>
-              <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href={CLUB_SOCIAL.instagram || 'https://www.instagram.com/delta.sjec/'} target="_blank" rel="noopener">Instagram</a></li>
             </ul>
           </div>
         </div>
         <div className="ftr-bottom">
           <span>&copy; 2026 Delta. All rights reserved.</span>
-          <span>Placeholder content for preview</span>
         </div>
       </div>
     </footer>

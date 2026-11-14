@@ -296,6 +296,7 @@ form.card-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--mist);box-shadow:0 0 0 3px rgba(152,169,196,.2)}
 .form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
 .status{color:var(--mist);font-size:.92rem;flex:1 1 220px}
+.btn:disabled{opacity:.6;cursor:wait}
 @media (max-width:900px){.join{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:560px){form.card-form{grid-template-columns:minmax(0,1fr)}}
 
