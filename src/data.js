@@ -393,12 +393,14 @@ export const DEPTS = [
 export const VOICES = [
   {
     n: 'Dr. Ravikantha Prabhu',
+    photo: 'https://res.cloudinary.com/zmg7zosm/image/upload/dr-ravikantha-prabhu.jpg',
     desig: 'HOD - DEPT. OF MECHANICAL ENGINEERING',
     inst: 'St. Joseph Engineering College, Mangaluru',
     m: '"Delta gives students a place to apply what they learn in class to problems that do not come with answer keys. I have watched members grow from hesitant first-years into people who lead teams and defend their designs."',
   },
   {
     n: 'Dr. Ramananda H.S.',
+    photo: 'https://res.cloudinary.com/zmg7zosm/image/upload/ramananda.png',
     desig: 'FACULTY COORDINATOR - DELTA CLUB',
     inst: 'St. Joseph Engineering College, Mangaluru',
     m: '“Where Ideas Ignite, Research Innovates, and Discoveries Become Patents.”',
@@ -435,7 +437,7 @@ export const TEAM = {
       n: 'Melrick Prith Dsouza', b: 'Artificial Intelligence & Machine Learning',
       r: 'Head of Computing Engineering',
       q: 'The best way to predict the future is to invent it.',
-      photo: 'https://res.cloudinary.com/zmg7zosm/image/upload/20261111_134441_1.jpg',
+      photo: 'https://res.cloudinary.com/zmg7zosm/image/upload/20261111_171649.jpg',
       linkedin: 'https://www.linkedin.com/in/melrick-dsouza-95a956299',
       instagram: 'https://www.instagram.com/its_melrick_dsouza',
       github: 'https://github.com/melrickpd2006',
@@ -498,7 +500,7 @@ export const TEAM = {
       n: 'Ananya Amarnath', b: 'Computer Science Engineering',
       r: 'Digital Systems Engineer',
       q: 'Shaping code into solutions.',
-      photo: 'https://res.cloudinary.com/zmg7zosm/image/upload/20261111_171649.jpg',
+      photo: 'https://res.cloudinary.com/zmg7zosm/image/upload/20261111_134441_1.jpg',
       linkedin: 'https://www.linkedin.com/in/ananya-amarnath-7a586144a',
       instagram: 'https://www.instagram.com/delta.sjec/',
       github: 'https://github.com/ananyaamar',
