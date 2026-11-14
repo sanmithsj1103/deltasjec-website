@@ -28,13 +28,13 @@ export default function Join() {
             Tell us a little about yourself. First-years and seniors from every branch are welcome, and you do not need prior experience.
           </p>
           <ul className="perks">
-            <li><span><b>Weekly build nights.</b> Open lab hours with mentors on hand.</span></li>
-            <li><span><b>Real project teams.</b> Join a team that ships something each semester.</span></li>
-            <li><span><b>Workshops and talks.</b> CAD, embedded systems, simulation and more.</span></li>
+            <li><span><b>Interdisciplinary teams.</b> Build alongside peers from Mechanical, Electronics, and Computer Science.</span></li>
+            <li><span><b>Lab-to-launch projects.</b> Go beyond classroom theory by designing, simulating, and shipping real hardware.</span></li>
+            <li><span><b>Mentored R&D.</b> Learn industry-standard tools like ANSYS, MATLAB, and KiCad with guidance from seniors and faculty.</span></li>
           </ul>
         </div>
         <form className="card-form" onSubmit={submit} noValidate={false}>
-          <div className="field">
+          <div className="field full">
             <label htmlFor="f-name">Name</label>
             <input id="f-name" name="name" type="text" autoComplete="name" placeholder="Your full name" required value={form.name} onChange={set('name')} />
           </div>
@@ -54,7 +54,7 @@ export default function Join() {
               <option>Computer Science</option>
             </select>
           </div>
-          <div className="field">
+          <div className="field full">
             <label htmlFor="f-email">Email</label>
             <input id="f-email" name="email" type="email" autoComplete="email" placeholder="you@college.edu" required value={form.email} onChange={set('email')} />
           </div>

@@ -11,7 +11,7 @@ function AreaHero({ page, hero }) {
       role="banner"
     >
       {hero.image && (
-        <img src={hero.image} alt="" aria-hidden="true" className="area-hero-bg" />
+        <img src={hero.image} alt="" aria-hidden="true" className="area-hero-bg" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
       )}
 
       <div className="area-hero-overlay" style={{ background: hero.overlay }} aria-hidden="true" />

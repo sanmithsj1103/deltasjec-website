@@ -1,4 +1,87 @@
 ﻿export const PAGES = {
+  research: {
+    icon: 'search',
+    title: 'Research',
+    headline: 'Research That Moves Engineering Forward.',
+    blurb:
+      'Faculty-mentored studies where control theory, energy systems and machine learning meet real hardware. Members move from a literature review to a validated result.',
+    intro:
+      'Research at Delta is built around five tracks that share one habit: model it, test it on hardware, and report what the data says.',
+    items: [
+      ['Control & Optimization', 'Feedback control, estimation and optimal decision-making for dynamic systems.'],
+      ['Electrified Powertrains & Energy Management', 'Motor drives, battery packs and energy strategies for electric vehicles.'],
+      ['Physics-Informed & Scientific Machine Learning', 'Learning models that respect the physical laws behind the data.'],
+      ['Digital Twins & Cyber-Physical Systems', 'Live virtual replicas that mirror and predict real machines.'],
+      ['Embedded AI & Hardware-in-the-Loop', 'Running trained models on microcontrollers and testing them against simulated plants.'],
+    ],
+    focusAreas: [
+      {
+        id: 'control-optimization',
+        title: 'Control & Optimization',
+        blurb: 'Feedback control, state estimation and optimal decision-making for systems that must stay stable, fast and efficient.',
+        icon: '◎',
+        activities: [
+          'Model dynamic systems and design PID, state-feedback and model-predictive controllers.',
+          'Formulate optimization problems with clear objectives and constraints, then solve and compare methods.',
+          'Build state estimators such as Kalman filters and validate them against measured sensor data.',
+          'Test controllers in simulation first, then on a bench rig, and document the gap between the two.',
+        ],
+        outcomes: 'Members leave with a validated controller design, a reproducible simulation-to-hardware workflow and a write-up ready for a conference poster or paper.',
+      },
+      {
+        id: 'electrified-powertrains',
+        title: 'Electrified Powertrains & Energy Management',
+        blurb: 'Motor drives, battery systems and energy-management strategies that decide how far and how efficiently an electric vehicle goes.',
+        icon: '⚡',
+        activities: [
+          'Model motor, inverter and battery behaviour and match the model to bench measurements.',
+          'Develop energy-management strategies that split power between sources to save energy and extend battery life.',
+          'Characterise battery cells for capacity, resistance and ageing, and build simple state-of-charge estimators.',
+          'Compare strategies on standard drive cycles and report energy use, range and losses.',
+        ],
+        outcomes: 'Members gain hands-on experience with electric-vehicle drive systems and battery data, plus a measured comparison of energy strategies they can present in interviews.',
+      },
+      {
+        id: 'physics-informed-ml',
+        title: 'Physics-Informed & Scientific Machine Learning',
+        blurb: 'Machine-learning models that are trained on data and constrained by the physical laws behind it.',
+        icon: 'Φ',
+        activities: [
+          'Train physics-informed neural networks that solve or approximate differential equations.',
+          'Learn unknown system dynamics from data and compare against first-principles models.',
+          'Build surrogate models that replace slow simulations with fast, accurate predictions.',
+          'Check every model against held-out data and physical limits, and report where it fails.',
+        ],
+        outcomes: 'Members build a reproducible notebook-to-paper pipeline and a clear understanding of when learning from physics beats learning from data alone.',
+      },
+      {
+        id: 'digital-twins-cps',
+        title: 'Digital Twins & Cyber-Physical Systems',
+        blurb: 'Virtual replicas that stay in sync with real machines, so behaviour can be monitored, predicted and improved.',
+        icon: '⧉',
+        activities: [
+          'Build a digital twin of a Delta rig that updates from live sensor streams.',
+          'Connect sensors, a communication layer and a model so the physical and virtual systems exchange data.',
+          'Use the twin to detect faults early and test control changes before they reach the hardware.',
+          'Measure latency, accuracy and drift of the twin and report them honestly.',
+        ],
+        outcomes: 'Members finish with a working twin, experience in data pipelines between hardware and software, and results that apply to industry monitoring and predictive maintenance.',
+      },
+      {
+        id: 'embedded-ai-hil',
+        title: 'Embedded AI & Hardware-in-the-Loop',
+        blurb: 'Trained models running on small processors, tested against simulated machines before they touch real ones.',
+        icon: '⌬',
+        activities: [
+          'Compress and deploy neural networks and controllers on microcontrollers within tight memory and timing limits.',
+          'Set up a hardware-in-the-loop bench where real firmware runs against a simulated plant.',
+          'Profile execution time, power use and accuracy on the target device.',
+          'Automate repeatable test runs and record the results for later comparison.',
+        ],
+        outcomes: 'Members leave with firmware that runs a real model on real hardware, a hardware-in-the-loop test setup and the skills to move research code toward a product.',
+      },
+    ],
+  },
   engineering: {
     icon: 'gear',
     title: 'Engineering',
@@ -13,7 +96,6 @@
       ['Systems Integration', 'Bringing mechanical, electronic and software parts into one working machine.'],
       ['Computing in Engineering', 'Cross-disciplinary software, algorithms and data workflows.'],
       ['IT & Digital Operations', 'Websites, member portals, databases and internal tooling.'],
-      ['Research & Development', 'Longer faculty-mentored studies from literature review to conference results.'],
     ],
     focusAreas: [
       {
@@ -80,19 +162,6 @@
           'Set up CI/CD pipelines and manage the club\'s GitHub organisation.',
         ],
         outcomes: 'Members graduate with a live production deployment in their portfolio, CI/CD experience, and full-stack skills spanning frontend, backend and database design.',
-      },
-      {
-        id: 'research-development',
-        title: 'Research & Development',
-        blurb: 'Longer faculty-mentored studies that run from literature review through to conference-ready results.',
-        icon: '◉',
-        activities: [
-          'Review and annotate literature using Zotero and Google Scholar, producing a structured summary.',
-          'Design and run controlled experiments following a written test protocol.',
-          'Draft and iterate on a research paper in Overleaf using the IEEE or Elsevier template.',
-          'Present findings at the semester demo day and optionally at external student conferences.',
-        ],
-        outcomes: 'Members leave with a co-authored publication or conference poster, a structured literature review, and experience presenting technical results to a mixed audience.',
       },
     ],
   },
@@ -279,7 +348,7 @@
   },
 };
 
-export const ABOUT_IDS = ['engineering', 'sustainability', 'media'];
+export const ABOUT_IDS = ['research', 'engineering', 'sustainability', 'media'];
 
 export const NAV = [
   { href: '#top', label: 'Home' },
@@ -364,7 +433,7 @@ export const TEAM = {
   leads: [
     {
       n: 'Melrick Prith Dsouza', b: 'Artificial Intelligence & Machine Learning',
-      r: 'Head of Computer Engineering',
+      r: 'Head of Computing Engineering',
       q: 'The best way to predict the future is to invent it.',
       photo: '/src/assets//photos/melrick.jpg',
       linkedin: 'https://www.linkedin.com/in/melrick-dsouza-95a956299',

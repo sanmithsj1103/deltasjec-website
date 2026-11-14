@@ -1,3 +1,4 @@
+import ResearchPage from './ResearchPage.jsx';
 import EngineeringPage from './EngineeringPage.jsx';
 import SustainabilityPage from './SustainabilityPage.jsx';
 import MediaPage from './MediaPage.jsx';
@@ -7,6 +8,7 @@ import PrivacyPage from './PrivacyPage.jsx';
 
 // URL hash -> page component. To add a page: create it in src/pages and add one line here.
 export const ROUTES = {
+   research: ResearchPage,
   engineering: EngineeringPage,
   sustainability: SustainabilityPage,
   media: MediaPage,

@@ -6,7 +6,7 @@ const HERO = {
   accent: '#7BDFF2',
   glow: 'rgba(123,223,242,0.12)',
   stats: [
-    { n: '6', label: 'Focus tracks' },
+    { n: '5', label: 'Focus tracks' },
     { n: '15+', label: 'Tools & platforms' },
   ],
 };
