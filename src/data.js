@@ -4,7 +4,7 @@
     title: 'Engineering',
     headline: 'Engineering Ideas into Real Systems.',
     blurb:
-      'We take an idea from a sketch to a tested prototype. Members learn the whole engineering loop, from modelling a part to checking it against real loads.',
+      'We explore design, simulation, and system integration to solve real engineering challenges through a research-driven approach.',
     intro:
       'Engineering is the technical core of Delta. Six tracks cover the path from design to research, and most projects touch several of them.',
     items: [
@@ -102,7 +102,7 @@
     title: 'Sustainability',
     headline: 'Engineering for Long-Term Impact.',
     blurb:
-      'Our projects are judged on energy, materials and lifetime cost. We build things that last, use less and can be repaired.',
+      'We explore sustainable engineering, energy systems and resource-efficient solutions to create a more responsible future.',
     intro:
       'Sustainability work at Delta is measured, not promised. Each track starts with a baseline and reports what changed.',
     // Legacy items array kept for About chips
@@ -175,7 +175,7 @@
     title: 'Media',
     headline: 'Stories Behind the Engineering.',
     blurb:
-      'Delta documents what it builds. The media team shoots, edits and publishes so our projects reach people beyond the lab.',
+      'WE capture, create and communicate the work, people and ideas that drive Delta through visuals, design and content.',
     intro:
       'Media turns lab work into stories people can follow. The team covers every project and every event we host.',
     // Legacy items kept for About chips
@@ -332,7 +332,7 @@ export const VOICES = [
     n: 'Dr. Ramananda H.S.',
     desig: 'FACULTY COORDINATOR - DELTA CLUB',
     inst: 'St. Joseph Engineering College, Mangaluru',
-    m: '"My role is to keep the doors open and the budget honest. The ideas, the late nights and the results belong to the students, and they have earned every bit of the club’s reputation."',
+    m: '“Where Ideas Ignite, Research Innovates, and Discoveries Become Patents.”',
   },
 ];
 
@@ -341,7 +341,7 @@ export const TEAM = {
   row1: [
     {
       n: 'Norman Daran Dsouza', b: 'Mechanical Engineering',
-      r: 'Co-Founder & Vice President of Mechanical Engineering',
+      r: 'Co-Founder & Head of Mechanical Engineering',
       q: 'Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.',
       photo: '/src/assets/photos/norman.jpg',
       linkedin: 'http://www.linkedin.com/in/norman-daran-dsouza',
@@ -364,7 +364,7 @@ export const TEAM = {
   leads: [
     {
       n: 'Melrick Prith Dsouza', b: 'Artificial Intelligence & Machine Learning',
-      r: 'Vice President of Computer Science Engineering',
+      r: 'Head of Computer Engineering',
       q: 'The best way to predict the future is to invent it.',
       photo: '/src/assets//photos/melrick.jpg',
       linkedin: 'https://www.linkedin.com/in/melrick-dsouza-95a956299',
@@ -374,7 +374,7 @@ export const TEAM = {
     },
     {
       n: 'Nikhitha HL', b: 'Electronics & Communication Engineering',
-      r: 'Vice President of Electronics Engineering',
+      r: 'Head of Electronics Engineering',
       q: 'Learning today, designing tomorrow, and building my future one chip at a time.',
       photo: '/src/assets//photos/nikitha.jpg',
       linkedin: 'https://www.linkedin.com/in/nikhitha-hl-5345aa351',
@@ -489,4 +489,4 @@ export const BRANCHES = [
   'MECH',
 ];
 
-export const CLUB_EMAIL = 'delta.club@example.com';
+export const CLUB_EMAIL = 'delta@sjec.ac.in';

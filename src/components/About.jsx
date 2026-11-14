@@ -30,7 +30,7 @@ export default function About() {
   return (
     <section className="sec" id="about">
       <div className="wrap">
-        <SectionHead eyebrow="About us" title="Three ways we build">
+        <SectionHead eyebrow="About us" title="What we focus on">
           Delta is organised around engineering, sustainability and media. Each area has its own projects, mentors and a page of its own.
         </SectionHead>
         <div className="about-list">
